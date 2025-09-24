@@ -17,8 +17,7 @@ To simplify and automate the booking of appointments with the university student
 - Database: MySQL / PostgreSQL / MongoDB / Firebase
 - Version Control: Git/GitHub
 
-
-##HIGH LEVEL SYSTEM OVERVIEW
+## 5. HIGH LEVEL SYSTEM OVERVIEW
 The WellCare system is a web-based application designed to manage student wellness and counseling appointments at a university. It is built around three major modules that handle user interactions, appointment logistics, and administrative reporting.
 
 Major Modules/Subsystems
@@ -42,3 +41,9 @@ Database: The system relies on a relational database (e.g., PostgreSQL or MySQL)
 Data Flow Summary
 
 Data enters the system from different external entities. A User/Student initiates the process by providing their information for account creation and submitting an appointment request. This data is processed by the User Management Module and the Appointment Scheduling Module, respectively, and stored in the Student Data Store. Counselors access their schedules and enter session notes, with this information being stored in the Counselor Data Store. The Reporting Module then accesses data from both the Student and Counselor Data Stores to compile reports. Finally, these reports are delivered to the Administrative Staff for review.
+
+## 6. Integration Pattern
+- Hub-Spoke
+
+## 7. Rationale
+The Hub-Spoke integration pattern best fits the WellCare system because all modules (User Management, Appointment Scheduling, Reporting) must communicate efficiently and consistently with shared services such as authentication, notifications, and the database. Using a central hub reduces direct dependencies between modules, simplifies maintenance, and allows the system to scale more easily as additional modules or external services are added.
